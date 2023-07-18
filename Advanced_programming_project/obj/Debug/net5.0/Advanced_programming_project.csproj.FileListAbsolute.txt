@@ -1,0 +1,16 @@
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.csproj.AssemblyReference.cache
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.GeneratedMSBuildEditorConfig.editorconfig
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.AssemblyInfoInputs.cache
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.AssemblyInfo.cs
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.csproj.CoreCompileInputs.cache
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.exe
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.deps.json
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.runtimeconfig.json
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.runtimeconfig.dev.json
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.dll
+C:\CSharpOOP\Advanced_programming_project\bin\Debug\net5.0\Advanced_programming_project.pdb
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.dll
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\refint\Advanced_programming_project.dll
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.pdb
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\Advanced_programming_project.genruntimeconfig.cache
+C:\CSharpOOP\Advanced_programming_project\obj\Debug\net5.0\ref\Advanced_programming_project.dll
