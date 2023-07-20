@@ -10,27 +10,27 @@ namespace Advanced_programming_project.Decorator
     {
         public Test_45_minutes() { }
 
-        public int Time
+        public new int Time
         {
             get { return 45; }
         }
 
-        public float Score
+        public new float Score
         {
             get { return 11; }
         }
 
-        public void show_time()
+        public override void show_time()
         {
             Console.WriteLine("This test has a duration of " + Time + " minutes!");
         }
 
-        public void show_score()
+        public override void show_score()
         {
             Console.WriteLine("The total test score is " + Score + " points.");
         }
 
-        public void questions()
+        public override void questions()
         {
             base.questions();
 
@@ -47,7 +47,7 @@ namespace Advanced_programming_project.Decorator
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
         }
 
-        public void answers()
+        public override void answers()
         {
             base.answers();
 

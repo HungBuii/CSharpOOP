@@ -20,17 +20,17 @@ namespace Advanced_programming_project.Decorator
             get { return 5; }
         }
 
-        public void show_time()
+        public virtual void show_time()
         {
             Console.WriteLine("\nThis test has a duration of " + Time + " minutes!");
         }
 
-        public void show_score()
+        public virtual void show_score()
         {
             Console.WriteLine("The total test score is " + Score + " points.");
         }
 
-        public void questions()
+        public virtual void questions()
         {
             Console.WriteLine("\n* Part 1: Multiple-choice questions");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
@@ -61,7 +61,7 @@ namespace Advanced_programming_project.Decorator
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
         }
 
-        public void answers()
+        public virtual void answers()
         {
             Console.WriteLine("* Part 1: Multiple-choice questions");
             Console.WriteLine("----------------------------------------------------------------------------------------------------------------------");
