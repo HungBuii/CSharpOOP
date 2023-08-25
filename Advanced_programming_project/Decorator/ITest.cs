@@ -21,9 +21,8 @@ namespace Advanced_programming_project.Decorator
 
         // Method
         public void show_time();
-
         public void show_score();
         public void questions();
-        public void answers();
+
     }
 }
