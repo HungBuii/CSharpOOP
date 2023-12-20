@@ -1,0 +1,16 @@
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.exe
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.deps.json
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.runtimeconfig.json
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.runtimeconfig.dev.json
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.dll
+D:\CSharpOOP\ExamSystem\bin\Debug\net5.0\ExamSystem.pdb
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.AssemblyInfoInputs.cache
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.AssemblyInfo.cs
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.csproj.CoreCompileInputs.cache
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.sourcelink.json
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.dll
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\refint\ExamSystem.dll
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.pdb
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ExamSystem.genruntimeconfig.cache
+D:\CSharpOOP\ExamSystem\obj\Debug\net5.0\ref\ExamSystem.dll
