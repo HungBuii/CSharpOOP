@@ -6,7 +6,9 @@ namespace ExamSystem
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            IExamQuestionCreator emp = new ExamQuestionCreator();
+            IExamQuestionCreator t = new Teacher(emp);
+            t.action();
         }
     }
 }

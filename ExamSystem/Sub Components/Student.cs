@@ -4,18 +4,18 @@ class Student
     public Student() { }
 
     // Properties
+    private int no;
+    public int No
+    {
+        get { return no; }
+        set { no = value; }
+    }
+
     private string name;
     public string Name
     {
         get { return name; }
         set { name = value; }
-    }
-
-    private string className;
-    public string ClassName
-    {
-        get { return className; }
-        set { className = value; }
     }
 
     // Method
