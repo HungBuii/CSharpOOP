@@ -12,15 +12,24 @@ class SubjectLeader : ExamQuestionCreatorDecorator
     // Method 
     public void addQuestionToExam(int _number)
     {
-        if (_number >=0 && _number < Teacher.questions.Count)
+        if (_number >= 0 && _number <= Teacher.questions.Count)
         {
             for (int i = 0; i < Teacher.questions.Count; i++)
             {
-                if (Teacher.questions[i].No == _number && !questionsExam.Contains(Teacher.questions[i]))
+                if (Teacher.questions[i].No == _number)// && !questionsExam[j].Equals(Teacher.questions[i])
                 {
                     questionsExam.Add(Teacher.questions[i]);
                     break;
                 }
+                // for (int j = 0; j < questionsExam.Count; j++)
+                // {
+                //     if (Teacher.questions[i].No == _number)// && !questionsExam[j].Equals(Teacher.questions[i])
+                //     {
+                //         questionsExam.Add(Teacher.questions[i]);
+                //         break;
+                //     }
+                // }
+
             }
         }
         else
@@ -29,7 +38,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         }
     }
 
-    public void createQuestionExam() 
+    public void createQuestionExam()
     {
         Question _question = new Question();
         System.Console.WriteLine("*******************");
@@ -68,7 +77,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
 
     public void sortQuesionExamByNo()
     {
-        for (int i = 0; i < questionsExam.Count; i++)
+        for (int i = 1; i <= questionsExam.Count; i++)
         {
             if (questionsExam[i].No == i) continue;
             else
@@ -92,6 +101,12 @@ class SubjectLeader : ExamQuestionCreatorDecorator
 
     public override void action()
     {
-        throw new System.NotImplementedException();
+        addQuestionToExam(1);
+        addQuestionToExam(2);
+        addQuestionToExam(3);
+        createQuestionExam();
+        removeQuestionExam(2);
+        updateQuestionExam(1);
+        showQuestionExam();
     }
 }

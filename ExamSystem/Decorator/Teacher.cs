@@ -109,8 +109,10 @@ class Teacher : ExamQuestionCreatorDecorator
         showStudentList();
         createQuestion();
         createQuestion();
-        // removeQuestion(3);
-        // updateQuestion(2);
+        createQuestion();
+        createQuestion();
+        removeQuestion(2);
+        updateQuestion(1);
         sortQuesionByNo();
         showQuestion();
 
