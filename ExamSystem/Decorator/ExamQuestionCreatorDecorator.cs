@@ -14,6 +14,9 @@ abstract class ExamQuestionCreatorDecorator : IExamQuestionCreator
         return creator.subjectExam();
     }
 
-    abstract public void action();
+    abstract public void action(int _choice);
+    
+    public bool login(string _usernameLogin, string _passwordLogin) { return true; }
 
+    public bool register(string _usernameRegister, string _passwordRegister) { return true; }
 }

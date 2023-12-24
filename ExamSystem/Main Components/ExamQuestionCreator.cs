@@ -4,20 +4,27 @@ using System.Collections.Generic;
 class ExamQuestionCreator : IExamQuestionCreator
 {
     // Constructor
-    public ExamQuestionCreator() { }
+    public ExamQuestionCreator() 
+    {
+        username = new List<string>();
+        password = new List<string>();
+    }
 
     // Properties
     private List<string> username;
     public List<string> Username
     {
         get { return username; }
+        private set { username = value; }
     }
 
     private List<string> password;
     public List<string> Password
     {
         get { return password; }
+        private set { password = value; }
     }
+    
 
     private string subject;
     public string Subject
@@ -29,7 +36,7 @@ class ExamQuestionCreator : IExamQuestionCreator
     public static List<Question> questionsExam = new List<Question>();
 
     // Method
-    public void action() { }
+    public void action(int _choice) { }
 
     public string subjectExam()
     {
@@ -38,88 +45,50 @@ class ExamQuestionCreator : IExamQuestionCreator
         return Subject;
     }
 
-    public void login()
+    public bool login(string _usernameLogin, string _passwordLogin)
     {
-        System.Console.Write("Username: "); string usernameLogin = Console.ReadLine();
-        System.Console.WriteLine("Password: "); string passwordLogin = Console.ReadLine();
-
-        if (checkAccount(usernameLogin, "") && checkAccount("", passwordLogin))
-        {
-            System.Console.WriteLine("You have successfully accessed the system!");
+        if (checkAccount(_usernameLogin, "") && checkAccount("", _passwordLogin))
+        { 
+            return true;
         }
         else
         {
-            System.Console.WriteLine("Cannot access the system!");
-            System.Console.WriteLine("Please log back or re-register into the system.");
+            return false;
         }
     }
 
-    public void register()
+    public bool register(string _usernameRegister, string _passwordRegister)
     {
-        System.Console.Write("Username: "); string usernameRegister = Console.ReadLine();
-        System.Console.WriteLine("Password: "); string passwordRegister = Console.ReadLine();
-
-        if (usernameRegister == "" || passwordRegister == "")
+        if (_usernameRegister == "" || _passwordRegister == "")
         {
             System.Console.WriteLine("Please re-register back into the system.");
-            register();
+            return false;
         }
 
-        // for (int i = 0; i < Username.Count; i++)
-        // {
-        //     if (Username.Contains(usernameRegister))
-        //     {
-        //         System.Console.WriteLine("This account name already exists. Please re-register back into the system.");
-        //         register();
-        //         break;
-        //     }
-        //     else
-        //     {
-        //         Username.Add(usernameRegister);
-        //         break;
-        //     }
-        // }
-
-
-        // for (int i = 0; i < Password.Count; i++)
-        // {
-        //     if (Password.Contains(passwordRegister))
-        //     {
-        //         System.Console.WriteLine("This password already exists. Please re-register back into the system.");
-        //         register();
-        //         break;
-        //     }
-        //     else
-        //     {
-        //         Password.Add(passwordRegister);
-        //         break;
-        //     }
-        // }
-
-        if (checkAccount(usernameRegister, "") || checkAccount("", passwordRegister))
+        if (checkAccount(_usernameRegister, "") || checkAccount("", _passwordRegister))
         {
-            System.Console.WriteLine("This account name already exists. Please re-register back into the system.");
-            register();
+            return false;
         }
         else
         {
-            Username.Add(usernameRegister);
-            Password.Add(passwordRegister);
+            Username.Add(_usernameRegister);
+            Password.Add(_passwordRegister);
+            return true;
         }
     }
 
-    public bool checkAccount(string usernameLogin, string passwordLogin)
+    public bool checkAccount(string _usernameLogin, string _passwordLogin)
     {
         for (int i = 0; i < Username.Count; i++)
         {
-            if (usernameLogin != "" && Username.Contains(usernameLogin))
+            if (_usernameLogin != "" && Username.Contains(_usernameLogin))
             {
                 return true;
             }
         }
         for (int i = 0; i < Password.Count; i++)
         {
-            if (passwordLogin != "" && Password.Contains(passwordLogin))
+            if (_passwordLogin != "" && Password.Contains(_passwordLogin))
             {
                 return true;
             }

@@ -40,7 +40,7 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
         }     
     }
 
-    public override void action()
+    public override void action(int _choice)
     {
         printExamQuestion("y");
     }

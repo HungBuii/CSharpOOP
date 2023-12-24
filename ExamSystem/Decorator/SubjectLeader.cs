@@ -109,7 +109,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         }
     }
 
-    public override void action()
+    public override void action(int _choice)
     {
         addQuestionToExam(1);
         addQuestionToExam(2);

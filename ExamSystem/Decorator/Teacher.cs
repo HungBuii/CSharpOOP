@@ -105,8 +105,9 @@ class Teacher : ExamQuestionCreatorDecorator
         }
     }
 
-    public override void action()
+    public override void action(int _choice)
     {
+        creator.action(_choice);
         addStudent();
         showStudentList();
         createQuestion();
