@@ -44,12 +44,31 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
         }
     }
 
-    public override void action(int _choice)
+    public override void action()
     {
-        if (_choice == 1)
+        creator.action();
+        do
         {
-            printExamQuestion();
-        }
+            System.Console.WriteLine("\nSchool Principal's function: ");
+            System.Console.WriteLine("1. Print question exam \t 2. Back");
+            System.Console.Write("Your select: "); int choice5 = int.Parse(Console.ReadLine());
+            if (choice5 == 1)
+            {
+                printExamQuestion();
+            }
+            else if (choice5 == 2)
+            {
+                break;
+            }
+            else if (choice5 == 0)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid choice. Please enter again!");
+            }
+        } while (true);
     }
 
 }

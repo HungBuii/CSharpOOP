@@ -36,7 +36,7 @@ class ExamQuestionCreator : IExamQuestionCreator
     public static List<Question> questionsExam = new List<Question>();
 
     // Method
-    public void action(int _choice) { }
+    public void action() { }
 
     public string subjectExam()
     {

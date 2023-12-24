@@ -112,36 +112,56 @@ class Teacher : ExamQuestionCreatorDecorator
         }
     }
 
-    public override void action(int _choice)
+    public override void action()
     {
-        creator.action(_choice);
-        if (_choice == 1)
+        creator.action();
+
+        do
         {
-            addStudent();
-        }
-        else if (_choice == 2)
-        {
-            showStudentList();
-        }
-        else if (_choice == 3)
-        {
-            createQuestion();
-        }
-        else if (_choice == 4)
-        {
-            System.Console.WriteLine("What question number do you want to delete?");
-            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-            removeQuestion(number);
-        }
-        else if (_choice == 5)
-        {
-            System.Console.WriteLine("What question number do you want to update?");
-            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-            updateQuestion(number);
-        }
-        else if (_choice == 6)
-        {
-            showQuestion();
-        }
+            System.Console.WriteLine("\nTeacher's function: ");
+            System.Console.WriteLine("1. Add student \t 2. Show student list \t 3. Create question");
+            System.Console.WriteLine("4. Remove question \t 5. Update question \t 6. Show question list \t 7. Back");
+            System.Console.Write("Your select: "); int choice3 = int.Parse(Console.ReadLine());
+            if (choice3 == 1)
+            {
+                addStudent();
+            }
+            else if (choice3 == 2)
+            {
+                showStudentList();
+            }
+            else if (choice3 == 3)
+            {
+                createQuestion();
+            }
+            else if (choice3 == 4)
+            {
+                System.Console.WriteLine("What question number do you want to delete?");
+                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                removeQuestion(number);
+            }
+            else if (choice3 == 5)
+            {
+                System.Console.WriteLine("What question number do you want to update?");
+                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                updateQuestion(number);
+            }
+            else if (choice3 == 6)
+            {
+                showQuestion();
+            }
+            else if (choice3 == 7)
+            {
+                break;
+            }
+            else if (choice3 == 0)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid choice. Please enter again!");
+            }
+        } while (true);
     }
 }

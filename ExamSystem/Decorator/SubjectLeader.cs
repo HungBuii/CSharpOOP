@@ -107,34 +107,53 @@ class SubjectLeader : ExamQuestionCreatorDecorator
 
     }
 
-    public override void action(int _choice)
+    public override void action()
     {
-        creator.action(_choice);
-        if (_choice == 1)
+        creator.action();
+        do
         {
-            System.Console.WriteLine("What question number from the teacher's test set do you want to add to the exam set?");
-            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-            addQuestionToExam(number);
-        }
-        else if (_choice == 2)
-        {
-            createQuestionExam();
-        }
-        else if (_choice == 3)
-        {
-            System.Console.WriteLine("What question number do you want to delete from the exam?");
-            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-            removeQuestionExam(number);
-        }
-        else if (_choice == 4)
-        {
-            System.Console.WriteLine("What question number do you want to update from the exam?");
-            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-            updateQuestionExam(number);
-        }
-        else if (_choice == 5)
-        {
-            showQuestionExam();
-        }
+            System.Console.WriteLine("\nSubject Leader's function: ");
+            System.Console.WriteLine("1. Add question to exam \t 2. Create question exam");
+            System.Console.WriteLine("3. Remove question exam \t 4. Update question exam \t 5. Show list question in exam \t 6. Back");
+            System.Console.Write("Your select: "); int choice4 = int.Parse(Console.ReadLine());
+            if (choice4 == 1)
+            {
+                System.Console.WriteLine("What question number from the teacher's test set do you want to add to the exam set?");
+                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                addQuestionToExam(number);
+            }
+            else if (choice4 == 2)
+            {
+                createQuestionExam();
+            }
+            else if (choice4 == 3)
+            {
+                System.Console.WriteLine("What question number do you want to delete from the exam?");
+                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                removeQuestionExam(number);
+            }
+            else if (choice4 == 4)
+            {
+                System.Console.WriteLine("What question number do you want to update from the exam?");
+                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                updateQuestionExam(number);
+            }
+            else if (choice4 == 5)
+            {
+                showQuestionExam();
+            }
+            else if (choice4 == 6)
+            {
+                break;
+            }
+            else if (choice4 == 0)
+            {
+                Environment.Exit(0);
+            }
+            else
+            {
+                System.Console.WriteLine("Invalid choice. Please enter again!");
+            }
+        } while (true);
     }
 }

@@ -83,122 +83,35 @@ namespace ExamSystem
                 if (choice2 == 1)
                 {
                     IExamQuestionCreator t = new Teacher(_account);
-                    do
-                    {
-                        System.Console.WriteLine("Teacher's function: ");
-                        System.Console.WriteLine("1. Add student \t 2. Show student list \t 3. Create question");
-                        System.Console.WriteLine("4. Remove question \t 5. Update question \t 6. Show question list \t 7. Back");
-                        System.Console.Write("Your select: "); int choice3 = int.Parse(Console.ReadLine());
-                        if (choice3 == 1)
-                        {
-                            t.action(1);
-                        }
-                        else if (choice3 == 2)
-                        {
-                            t.action(2);
-                        }
-                        else if (choice3 == 3)
-                        {
-                            t.action(3);
-                        }
-                        else if (choice3 == 4)
-                        {
-                            t.action(4);
-                        }
-                        else if (choice3 == 5)
-                        {
-                            t.action(5);
-                        }
-                        else if (choice3 == 6)
-                        {
-                            t.action(6);
-                        }
-                        else if (choice3 == 7)
-                        {
-                            break;
-                        }
-                        else if (choice3 == 0)
-                        {
-                            Environment.Exit(0);
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Invalid choice. Please enter again!");
-                        }
-                    } while (true);
+                    t.action();
                 }
                 else if (choice2 == 2)
                 {
                     IExamQuestionCreator sbj = new SubjectLeader(_account);
-                    do
-                    {
-                        System.Console.WriteLine("Subject Leader's function: ");
-                        System.Console.WriteLine("1. Add question to exam \t 2. Create question exam");
-                        System.Console.WriteLine("3. Remove question exam \t 4. Update question exam \t 5. Show list question in exam \t 6. Back");
-                        System.Console.Write("Your select: "); int choice4 = int.Parse(Console.ReadLine());
-                        if (choice4 == 1)
-                        {
-                            sbj.action(1);
-                        }
-                        else if (choice4 == 2)
-                        {
-                            sbj.action(2);
-                        }
-                        else if (choice4 == 3)
-                        {
-                            sbj.action(3);
-                        }
-                        else if (choice4 == 4)
-                        {
-                            sbj.action(4);
-                        }
-                        else if (choice4 == 5)
-                        {
-                            sbj.action(5);
-                        }
-                        else if (choice4 == 6)
-                        {
-                            break;
-                        }
-                        else if (choice4 == 0)
-                        {
-                            Environment.Exit(0);
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Invalid choice. Please enter again!");
-                        }
-                    } while (true);
+                    sbj.action();
                 }
                 else if (choice2 == 3)
                 {
                     IExamQuestionCreator spl = new SchoolPrincipal(_account);
-                    do
-                    {
-                        System.Console.WriteLine("School Principal's function: ");
-                        System.Console.WriteLine("1. Confirm exam \t 2. Print question exam");
-                        System.Console.Write("Your select: "); int choice5 = int.Parse(Console.ReadLine());
-                        if (choice5 == 1)
-                        {
-                            spl.action(1);
-                        }
-                        else if (choice5 == 2)
-                        {
-                            spl.action(2);
-                        }
-                        else if (choice5 == 3)
-                        {
-                            break;
-                        }
-                        else if (choice5 == 0)
-                        {
-                            Environment.Exit(0);
-                        }
-                        else
-                        {
-                            System.Console.WriteLine("Invalid choice. Please enter again!");
-                        }
-                    } while (true);
+                    spl.action();
+                }
+                else if (choice2 == 4)
+                {
+                    IExamQuestionCreator t1 = new Teacher(_account);
+                    IExamQuestionCreator sbjT1 = new SubjectLeader(t1);
+                    sbjT1.action();
+                }
+                else if (choice2 == 5)
+                {
+                    IExamQuestionCreator t2 = new Teacher(_account);
+                    IExamQuestionCreator splT2 = new SchoolPrincipal(t2);
+                    splT2.action();
+                }
+                else if (choice2 == 6)
+                {
+                    IExamQuestionCreator spl1 = new SubjectLeader(_account);
+                    IExamQuestionCreator splSbj = new SchoolPrincipal(spl1);
+                    splSbj.action();
                 }
             } while (true);
         }
