@@ -1,3 +1,4 @@
+using System;
 class SchoolPrincipal : ExamQuestionCreatorDecorator
 {
     // Constructor
@@ -12,37 +13,43 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
     }
 
     // Method 
-
-    public bool confirmExam(string _confirm)
+    public void printExamQuestion()
     {
-        if (_confirm == "y")
+        System.Console.WriteLine("Do you agree to publish this exam?");
+        System.Console.Write("Your choice(y/n): "); string confirm = Console.ReadLine();
+        if (confirm == "y")
         {
-            return true;
-        }
-        return false;
-    }
-
-    public void printExamQuestion(string _confirm)
-    {
-        if (confirmExam(_confirm))
-        {
-            for (int i = 0; i < SubjectLeader.questionsExam.Count; i++)
+            if (SubjectLeader.questionsExam.Count > 0)
             {
-                System.Console.WriteLine("- Question " + SubjectLeader.questionsExam[i].No + ": ");
-                System.Console.WriteLine("+ Title: " + SubjectLeader.questionsExam[i].Title);
-                System.Console.WriteLine("+ Answer Choice: " + SubjectLeader.questionsExam[i].AnswerChoice);
+                for (int i = 0; i < SubjectLeader.questionsExam.Count; i++)
+                {
+                    System.Console.WriteLine("- Question " + SubjectLeader.questionsExam[i].No + ": ");
+                    System.Console.WriteLine("+ Title: " + SubjectLeader.questionsExam[i].Title);
+                    System.Console.WriteLine("+ Answer Choice: " + SubjectLeader.questionsExam[i].AnswerChoice);
+                }
+                System.Console.WriteLine("This exam has been printed successfully!");
             }
-            System.Console.WriteLine("This exam has been printed successfully!");
+            else
+            {
+                System.Console.WriteLine("There are no questions currently on this exam!");
+            }
+        }
+        else if (confirm == "n")
+        {
+            System.Console.WriteLine("This exam is in the updating stage. Please visit again later!");
         }
         else
         {
-            System.Console.WriteLine("This exam is in the updating stage. Please visit again later!");
-        }     
+            System.Console.WriteLine("Invalid choice. Please enter again!");
+        }
     }
 
     public override void action(int _choice)
     {
-        printExamQuestion("y");
+        if (_choice == 1)
+        {
+            printExamQuestion();
+        }
     }
 
 }

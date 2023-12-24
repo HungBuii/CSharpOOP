@@ -84,10 +84,10 @@ class Teacher : ExamQuestionCreatorDecorator
     {
         for (int i = 1; i <= questions.Count; i++)
         {
-            if (questions[i-1].No == i) continue;
+            if (questions[i - 1].No == i) continue;
             else
             {
-                questions[i-1].No = i;
+                questions[i - 1].No = i;
                 continue;
             }
         }
@@ -97,64 +97,51 @@ class Teacher : ExamQuestionCreatorDecorator
     public void showQuestion()
     {
         sortQuesionByNo();
-        for (int i = 0; i < questions.Count; i++)
+        if (questions.Count > 0)
         {
-            System.Console.WriteLine("- Question " + questions[i].No + ": ");
-            System.Console.WriteLine("+ Title: " + questions[i].Title);
-            System.Console.WriteLine("+ Answer Choice: " + questions[i].AnswerChoice);
+            for (int i = 0; i < questions.Count; i++)
+            {
+                System.Console.WriteLine("- Question " + questions[i].No + ": ");
+                System.Console.WriteLine("+ Title: " + questions[i].Title);
+                System.Console.WriteLine("+ Answer Choice: " + questions[i].AnswerChoice);
+            }
+        }
+        else
+        {
+            System.Console.WriteLine("There are no questions currently in here!");
         }
     }
 
     public override void action(int _choice)
     {
         creator.action(_choice);
-        addStudent();
-        showStudentList();
-        createQuestion();
-        createQuestion();
-        createQuestion();
-        createQuestion();
-        removeQuestion(2);
-        updateQuestion(1);
-        sortQuesionByNo();
-        showQuestion();
-
-        // System.Console.WriteLine("Your choice: ");
-        // int choice = int.Parse(Console.ReadLine());
-        // switch(choice)
-        // {
-        //     case 1:
-        //         infoClass();
-        //         break;
-        //     case 2: 
-        //         addStudent();
-        //         break;
-        //     case 3: 
-        //         showStudentList();
-        //         break;
-        // }
-
-        // do
-        // {
-        //     Console.WriteLine("1. Info class");
-        //     Console.WriteLine("2. Add student");
-        //     Console.WriteLine("0. Show student list");
-        //     while (Int32.TryParse(Console.ReadLine(), out choice) == false)
-        //     {
-        //         Console.WriteLine("Invalid option, try again...");
-        //     };
-        //     switch (choice)
-        //     {
-        //         case 1:
-        //             infoClass();
-        //             break;
-        //         case 2:
-        //             addStudent();
-        //             break;
-        //         case 3:
-        //             showStudentList();
-        //             break;
-        //     }
-        // } while (choice != 0);
+        if (_choice == 1)
+        {
+            addStudent();
+        }
+        else if (_choice == 2)
+        {
+            showStudentList();
+        }
+        else if (_choice == 3)
+        {
+            createQuestion();
+        }
+        else if (_choice == 4)
+        {
+            System.Console.WriteLine("What question number do you want to delete?");
+            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+            removeQuestion(number);
+        }
+        else if (_choice == 5)
+        {
+            System.Console.WriteLine("What question number do you want to update?");
+            System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+            updateQuestion(number);
+        }
+        else if (_choice == 6)
+        {
+            showQuestion();
+        }
     }
 }
