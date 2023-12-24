@@ -10,6 +10,8 @@ class SubjectLeader : ExamQuestionCreatorDecorator
     public static List<Question> questionsExam = new List<Question>();
 
     // Method 
+
+    /* Add questions from separate test sets prepared by teachers into the school's main test set */
     public void addQuestionToExam(int _number)
     {
         if (_number >= 0 && _number <= Teacher.questions.Count)
@@ -38,6 +40,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         }
     }
 
+    /* Create additional questions prepared by the subject head into the school's main question set */
     public void createQuestionExam()
     {
         Question _question = new Question();
@@ -49,8 +52,10 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         questionsExam.Add(_question);
     }
 
+    /* Delete questions prepared by the subject head into the school's main question set */
     public void removeQuestionExam(int _number)
     {
+        sortQuesionExamByNo();
         for (int i = 0; i < questionsExam.Count; i++)
         {
             if (_number > 0 && questionsExam[i].No == _number)
@@ -59,11 +64,13 @@ class SubjectLeader : ExamQuestionCreatorDecorator
                 break;
             }
         }
-
+        
     }
 
+    /* Update questions prepared by the subject head into the school's main question set */
     public void updateQuestionExam(int _number)
     {
+        sortQuesionExamByNo();
         for (int i = 0; i < questionsExam.Count; i++)
         {
             if (_number > 0 && questionsExam[i].No == _number)
@@ -75,22 +82,25 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         }
     }
 
+    /* Arrange questions in order from 1->n */
     public void sortQuesionExamByNo()
     {
         for (int i = 1; i <= questionsExam.Count; i++)
         {
-            if (questionsExam[i].No == i) continue;
+            if (questionsExam[i-1].No == i) continue;
             else
             {
-                questionsExam[i].No = i;
+                questionsExam[i-1].No = i;
                 continue;
             }
         }
     }
 
+    /* Displays questions that have been prepared in the school's exam set */
     public void showQuestionExam()
     {
         sortQuesionExamByNo();
+        System.Console.WriteLine(questionsExam.Count);
         for (int i = 0; i < questionsExam.Count; i++)
         {
             System.Console.WriteLine("- Question " + questionsExam[i].No + ": ");
@@ -105,8 +115,8 @@ class SubjectLeader : ExamQuestionCreatorDecorator
         addQuestionToExam(2);
         addQuestionToExam(3);
         createQuestionExam();
-        removeQuestionExam(2);
-        updateQuestionExam(1);
+        // removeQuestionExam(2);
+        // updateQuestionExam(1);
         showQuestionExam();
     }
 }

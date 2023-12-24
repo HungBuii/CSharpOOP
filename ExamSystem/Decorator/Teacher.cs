@@ -52,6 +52,7 @@ class Teacher : ExamQuestionCreatorDecorator
     /* Delete question */
     public void removeQuestion(int _number)
     {
+        sortQuesionByNo();
         for (int i = 0; i < questions.Count; i++)
         {
             if (_number > 0 && questions[i].No == _number)
@@ -66,6 +67,7 @@ class Teacher : ExamQuestionCreatorDecorator
     /* Update question */
     public void updateQuestion(int _number)
     {
+        sortQuesionByNo();
         for (int i = 0; i < questions.Count; i++)
         {
             if (_number > 0 && questions[i].No == _number)

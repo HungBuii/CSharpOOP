@@ -13,6 +13,10 @@ namespace ExamSystem
             IExamQuestionCreator emp1 = new ExamQuestionCreator();
             IExamQuestionCreator t1 = new SubjectLeader(emp1);
             t1.action();
+
+            IExamQuestionCreator emp2 = new ExamQuestionCreator();
+            IExamQuestionCreator t2 = new SchoolPrincipal(emp2);
+            t2.action();
         }
     }
 }
