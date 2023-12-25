@@ -9,9 +9,9 @@ abstract class ExamQuestionCreatorDecorator : IExamQuestionCreator
     protected IExamQuestionCreator creator;
 
     // Method 
-    public string subjectExam()
+    public string subjectExam(string _subject)
     {
-        return creator.subjectExam();
+        return creator.subjectExam(_subject);
     }
 
     abstract public void action();

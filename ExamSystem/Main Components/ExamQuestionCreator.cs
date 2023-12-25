@@ -38,10 +38,9 @@ class ExamQuestionCreator : IExamQuestionCreator
     // Method
     public void action() { }
 
-    public string subjectExam()
+    public string subjectExam(string _subject)
     {
-        System.Console.WriteLine("What is the subject of this exam?");
-        Subject = Console.ReadLine();
+        this.Subject = _subject;
         return Subject;
     }
 

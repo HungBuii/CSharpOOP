@@ -76,6 +76,10 @@ namespace ExamSystem
         {
             do
             {
+                System.Console.WriteLine("\nWhat is the subject of this exam?"); 
+                System.Console.Write("Subject: "); string subject = Console.ReadLine();
+                System.Console.WriteLine("Exam subjects will be selected as: " + _account.subjectExam(subject));
+                
                 System.Console.Write("\nAll account role: \n");
                 System.Console.WriteLine("1. Teacher \t\t\t 2. Subject Leader \t\t 3. SchoolPrincipal");
                 System.Console.WriteLine("4. Subject Leader + Teacher \t 5. School Principal + Teacher \t 6. School Principal + Subject Leader");
