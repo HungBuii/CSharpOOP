@@ -79,39 +79,52 @@ namespace ExamSystem
                 System.Console.Write("\nAll account role: \n");
                 System.Console.WriteLine("1. Teacher \t\t\t 2. Subject Leader \t\t 3. SchoolPrincipal");
                 System.Console.WriteLine("4. Subject Leader + Teacher \t 5. School Principal + Teacher \t 6. School Principal + Subject Leader");
+                System.Console.WriteLine("7. Back \t\t\t 8. Exit program");
                 System.Console.Write("Select your account role: "); int choice2 = int.Parse(Console.ReadLine());
                 if (choice2 == 1)
                 {
-                    IExamQuestionCreator t = new Teacher(_account);
-                    t.action();
+                    IExamQuestionCreator teacher1 = new Teacher(_account);
+                    teacher1.action();
                 }
                 else if (choice2 == 2)
                 {
-                    IExamQuestionCreator sbj = new SubjectLeader(_account);
-                    sbj.action();
+                    IExamQuestionCreator subjectLeader1 = new SubjectLeader(_account);
+                    subjectLeader1.action();
                 }
                 else if (choice2 == 3)
                 {
-                    IExamQuestionCreator spl = new SchoolPrincipal(_account);
-                    spl.action();
+                    IExamQuestionCreator schoolPrincipal = new SchoolPrincipal(_account);
+                    schoolPrincipal.action();
                 }
                 else if (choice2 == 4)
                 {
-                    IExamQuestionCreator t1 = new Teacher(_account);
-                    IExamQuestionCreator sbjT1 = new SubjectLeader(t1);
-                    sbjT1.action();
+                    IExamQuestionCreator teacher2 = new Teacher(_account);
+                    IExamQuestionCreator subjectLeaderAndTeacher = new SubjectLeader(teacher2);
+                    subjectLeaderAndTeacher.action();
                 }
                 else if (choice2 == 5)
                 {
-                    IExamQuestionCreator t2 = new Teacher(_account);
-                    IExamQuestionCreator splT2 = new SchoolPrincipal(t2);
-                    splT2.action();
+                    IExamQuestionCreator teacher3 = new Teacher(_account);
+                    IExamQuestionCreator schoolPrincipalAndTeacher = new SchoolPrincipal(teacher3);
+                    schoolPrincipalAndTeacher.action();
                 }
                 else if (choice2 == 6)
                 {
-                    IExamQuestionCreator spl1 = new SubjectLeader(_account);
-                    IExamQuestionCreator splSbj = new SchoolPrincipal(spl1);
-                    splSbj.action();
+                    IExamQuestionCreator subjectLeader2 = new SubjectLeader(_account);
+                    IExamQuestionCreator schoolPrincipalAndsubjectLeader = new SchoolPrincipal(subjectLeader2);
+                    schoolPrincipalAndsubjectLeader.action();
+                }
+                else if (choice2 == 7)
+                {
+                    break;
+                }
+                else if (choice2 == 0)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    System.Console.WriteLine("Invalid choice. Please enter again!");
                 }
             } while (true);
         }

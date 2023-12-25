@@ -16,7 +16,7 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
     public void printExamQuestion()
     {
         System.Console.WriteLine("Do you agree to publish this exam?");
-        System.Console.Write("Your choice(y/n): "); string confirm = Console.ReadLine();
+        System.Console.Write("Your choice(y/n): "); confirm = Console.ReadLine();
         if (confirm == "y")
         {
             if (SubjectLeader.questionsExam.Count > 0)
