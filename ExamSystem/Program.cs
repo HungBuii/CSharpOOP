@@ -1,14 +1,38 @@
 ﻿using System;
+using System.Text;
 
 namespace ExamSystem
 {
     internal class Program
     {
+        private static string ReadPassword()
+        {
+            StringBuilder password = new StringBuilder();
+            while (true)
+            {
+                ConsoleKeyInfo key = Console.ReadKey(true);
+
+                if (key.Key == ConsoleKey.Enter) break;
+                if (key.Key == ConsoleKey.Backspace && password.Length > 0) 
+                {
+                    password.Remove(password.Length - 1, 1);
+                    Console.Write("\b \b");
+                }
+                else if (key.Key != ConsoleKey.Backspace) 
+                {
+                    password.Append(key.KeyChar);
+                    Console.Write("*");
+                }
+            }
+
+            return password.ToString();
+        }
+
         private static void registerSystem(IExamQuestionCreator _account)
         {
             System.Console.WriteLine("\t\t\t\t\t\t\t\t\tREGISTER\n");
             System.Console.Write("\t\t\t\t\t\t\t\tUsername: "); string usernameRegister = Console.ReadLine();
-            System.Console.Write("\t\t\t\t\t\t\t\tPassword: "); string passwordRegister = Console.ReadLine();
+            System.Console.Write("\t\t\t\t\t\t\t\tPassword: "); string passwordRegister = ReadPassword();
             if (_account.register(usernameRegister, passwordRegister) == false)
             {
                 System.Console.WriteLine("\n\t\t\t\t\t\t\t*********************************");
@@ -27,7 +51,7 @@ namespace ExamSystem
         {
             System.Console.WriteLine("\t\t\t\t\t\t\t\t\tLOGIN\n");
             System.Console.Write("\t\t\t\t\t\t\t\tUsername: "); string usernameLogin = Console.ReadLine();
-            System.Console.Write("\t\t\t\t\t\t\t\tPassword: "); string passwordLogin = Console.ReadLine();
+            System.Console.Write("\t\t\t\t\t\t\t\tPassword: "); string passwordLogin = ReadPassword(); 
             if (_account.login(usernameLogin, passwordLogin))
             {
                 System.Console.WriteLine("\n\t\t\t\t\t\t\t*********************************");
@@ -76,10 +100,10 @@ namespace ExamSystem
         {
             do
             {
-                System.Console.WriteLine("\nWhat is the subject of this exam?"); 
+                System.Console.WriteLine("\nWhat is the subject of this exam?");
                 System.Console.Write("Subject: "); string subject = Console.ReadLine();
                 System.Console.WriteLine("Exam subjects will be selected as: " + _account.subjectExam(subject));
-                
+
                 System.Console.Write("\nAll account role: \n");
                 System.Console.WriteLine("1. Teacher \t\t\t 2. Subject Leader \t\t 3. SchoolPrincipal");
                 System.Console.WriteLine("4. Subject Leader + Teacher \t 5. School Principal + Teacher \t 6. School Principal + Subject Leader");
