@@ -76,22 +76,30 @@ namespace ExamSystem
                 System.Console.WriteLine("\n\n\t\t\t\t\t\t\t\tWelcome to Exam System!\n");
                 System.Console.WriteLine("\nDo you want to register a new account? (If yes, please log in)");
                 System.Console.WriteLine("1. Register \t 2. Login \t 0. Exit program \n");
-                System.Console.Write("Your select: "); int choice1 = int.Parse(Console.ReadLine());
-                if (choice1 == 1)
+                System.Console.Write("Your select: ");
+                try
                 {
-                    registerSystem(account1);
+                    int choice1 = int.Parse(Console.ReadLine());
+                    if (choice1 == 1)
+                    {
+                        registerSystem(account1);
+                    }
+                    else if (choice1 == 2)
+                    {
+                        loginSystem(account1);
+                    }
+                    else if (choice1 == 0)
+                    {
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Invalid choice. Please enter again!");
+                    }
                 }
-                else if (choice1 == 2)
+                catch (System.Exception e)
                 {
-                    loginSystem(account1);
-                }
-                else if (choice1 == 0)
-                {
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid choice. Please enter again!");
+                    System.Console.WriteLine(e.Message);
                 }
             } while (true);
         }
@@ -107,51 +115,59 @@ namespace ExamSystem
                 System.Console.WriteLine("1. Teacher \t\t\t 2. Subject Leader \t\t 3. SchoolPrincipal");
                 System.Console.WriteLine("4. Subject Leader + Teacher \t 5. School Principal + Teacher \t 6. School Principal + Subject Leader");
                 System.Console.WriteLine("7. Back \t\t\t 8. Exit program");
-                System.Console.Write("Select your account role: "); int choice2 = int.Parse(Console.ReadLine());
-                if (choice2 == 1)
+                System.Console.Write("Select your account role: ");
+                try
                 {
-                    IExamQuestionCreator teacher1 = new Teacher(_account);
-                    teacher1.action();
+                    int choice2 = int.Parse(Console.ReadLine());
+                    if (choice2 == 1)
+                    {
+                        IExamQuestionCreator teacher1 = new Teacher(_account);
+                        teacher1.action();
+                    }
+                    else if (choice2 == 2)
+                    {
+                        IExamQuestionCreator subjectLeader1 = new SubjectLeader(_account);
+                        subjectLeader1.action();
+                    }
+                    else if (choice2 == 3)
+                    {
+                        IExamQuestionCreator schoolPrincipal = new SchoolPrincipal(_account);
+                        schoolPrincipal.action();
+                    }
+                    else if (choice2 == 4)
+                    {
+                        IExamQuestionCreator teacher2 = new Teacher(_account);
+                        IExamQuestionCreator subjectLeaderAndTeacher = new SubjectLeader(teacher2);
+                        subjectLeaderAndTeacher.action();
+                    }
+                    else if (choice2 == 5)
+                    {
+                        IExamQuestionCreator teacher3 = new Teacher(_account);
+                        IExamQuestionCreator schoolPrincipalAndTeacher = new SchoolPrincipal(teacher3);
+                        schoolPrincipalAndTeacher.action();
+                    }
+                    else if (choice2 == 6)
+                    {
+                        IExamQuestionCreator subjectLeader2 = new SubjectLeader(_account);
+                        IExamQuestionCreator schoolPrincipalAndsubjectLeader = new SchoolPrincipal(subjectLeader2);
+                        schoolPrincipalAndsubjectLeader.action();
+                    }
+                    else if (choice2 == 7)
+                    {
+                        break;
+                    }
+                    else if (choice2 == 0)
+                    {
+                        Environment.Exit(0);
+                    }
+                    else
+                    {
+                        System.Console.WriteLine("Invalid choice. Please enter again!");
+                    }
                 }
-                else if (choice2 == 2)
+                catch (System.Exception e)
                 {
-                    IExamQuestionCreator subjectLeader1 = new SubjectLeader(_account);
-                    subjectLeader1.action();
-                }
-                else if (choice2 == 3)
-                {
-                    IExamQuestionCreator schoolPrincipal = new SchoolPrincipal(_account);
-                    schoolPrincipal.action();
-                }
-                else if (choice2 == 4)
-                {
-                    IExamQuestionCreator teacher2 = new Teacher(_account);
-                    IExamQuestionCreator subjectLeaderAndTeacher = new SubjectLeader(teacher2);
-                    subjectLeaderAndTeacher.action();
-                }
-                else if (choice2 == 5)
-                {
-                    IExamQuestionCreator teacher3 = new Teacher(_account);
-                    IExamQuestionCreator schoolPrincipalAndTeacher = new SchoolPrincipal(teacher3);
-                    schoolPrincipalAndTeacher.action();
-                }
-                else if (choice2 == 6)
-                {
-                    IExamQuestionCreator subjectLeader2 = new SubjectLeader(_account);
-                    IExamQuestionCreator schoolPrincipalAndsubjectLeader = new SchoolPrincipal(subjectLeader2);
-                    schoolPrincipalAndsubjectLeader.action();
-                }
-                else if (choice2 == 7)
-                {
-                    break;
-                }
-                else if (choice2 == 0)
-                {
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    System.Console.WriteLine("Invalid choice. Please enter again!");
+                    System.Console.WriteLine(e.Message);
                 }
             } while (true);
         }

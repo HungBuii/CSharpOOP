@@ -16,31 +16,39 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
     public void printExamQuestion()
     {
         System.Console.WriteLine("Do you agree to publish this exam?");
-        System.Console.Write("Your choice(y/n): "); confirm = Console.ReadLine();
-        if (confirm == "y")
+        System.Console.Write("Your choice(y/n): ");
+        try
         {
-            if (SubjectLeader.questionsExam.Count > 0)
+            confirm = Console.ReadLine();
+            if (confirm == "y")
             {
-                for (int i = 0; i < SubjectLeader.questionsExam.Count; i++)
+                if (SubjectLeader.questionsExam.Count > 0)
                 {
-                    System.Console.WriteLine("- Question " + SubjectLeader.questionsExam[i].No + ": ");
-                    System.Console.WriteLine("+ Title: " + SubjectLeader.questionsExam[i].Title);
-                    System.Console.WriteLine("+ Answer Choice: " + SubjectLeader.questionsExam[i].AnswerChoice);
+                    for (int i = 0; i < SubjectLeader.questionsExam.Count; i++)
+                    {
+                        System.Console.WriteLine("- Question " + SubjectLeader.questionsExam[i].No + ": ");
+                        System.Console.WriteLine("+ Title: " + SubjectLeader.questionsExam[i].Title);
+                        System.Console.WriteLine("+ Answer Choice: " + SubjectLeader.questionsExam[i].AnswerChoice);
+                    }
+                    System.Console.WriteLine("This exam has been printed successfully!");
                 }
-                System.Console.WriteLine("This exam has been printed successfully!");
+                else
+                {
+                    System.Console.WriteLine("There are no questions currently on this exam!");
+                }
+            }
+            else if (confirm == "n")
+            {
+                System.Console.WriteLine("This exam is in the updating stage. Please visit again later!");
             }
             else
             {
-                System.Console.WriteLine("There are no questions currently on this exam!");
+                System.Console.WriteLine("Invalid choice. Please enter again!");
             }
         }
-        else if (confirm == "n")
+        catch (System.Exception e)
         {
-            System.Console.WriteLine("This exam is in the updating stage. Please visit again later!");
-        }
-        else
-        {
-            System.Console.WriteLine("Invalid choice. Please enter again!");
+            System.Console.WriteLine(e.Message);
         }
     }
 
@@ -50,25 +58,32 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
         Console.Clear();
         do
         {
-            System.Console.WriteLine("\nSchool Principal's function: ");
-            System.Console.WriteLine("1. Print question exam \t 2. Back");
-            System.Console.Write("Your select: "); int choice5 = int.Parse(Console.ReadLine());
-            if (choice5 == 1)
+            try
             {
-                printExamQuestion();
+                System.Console.WriteLine("\nSchool Principal's function: ");
+                System.Console.WriteLine("1. Print question exam \t 2. Back");
+                System.Console.Write("Your select: "); int choice5 = int.Parse(Console.ReadLine());
+                if (choice5 == 1)
+                {
+                    printExamQuestion();
+                }
+                else if (choice5 == 2)
+                {
+                    break;
+                }
+                else if (choice5 == 0)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.Clear();
+                    System.Console.WriteLine("Invalid choice. Please enter again!");
+                }
             }
-            else if (choice5 == 2)
+            catch (System.Exception e)
             {
-                break;
-            }
-            else if (choice5 == 0)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid choice. Please enter again!");
+                System.Console.WriteLine(e.Message);
             }
         } while (true);
     }

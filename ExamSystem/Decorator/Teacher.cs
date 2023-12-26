@@ -17,12 +17,20 @@ class Teacher : ExamQuestionCreatorDecorator
     /* Add students to the exam class list */
     public void addStudent()
     {
-        Student _student = new Student();
-        System.Console.Write("* ID of student: "); _student.No = int.Parse(Console.ReadLine());
-        System.Console.WriteLine("- Infomation of student " + _student.No + ": ");
-        System.Console.Write("+ Name: "); _student.Name = Console.ReadLine();
-        studentList.Add(_student);
-        sortQuesionByNo();
+        try
+        {
+            Student _student = new Student();
+            System.Console.Write("* ID of student: "); _student.No = int.Parse(Console.ReadLine());
+            System.Console.WriteLine("- Infomation of student " + _student.No + ": ");
+            System.Console.Write("+ Name: "); _student.Name = Console.ReadLine();
+            studentList.Add(_student);
+            sortQuesionByNo();
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.Message);
+        }
+
     }
 
     /* Show all students in exam class list */
@@ -40,13 +48,22 @@ class Teacher : ExamQuestionCreatorDecorator
     /* Each question is created to be included in a separate set of questions prepared by teachers. */
     public void createQuestion()
     {
-        Question _question = new Question();
-        System.Console.WriteLine("*******************");
-        System.Console.Write("- Question "); _question.No = int.Parse(Console.ReadLine()); System.Console.WriteLine(": ");
-        System.Console.WriteLine("+ Title: "); _question.Title = Console.ReadLine();
-        System.Console.WriteLine("+ Answer Choice: "); _question.AnswerChoice = Console.ReadLine();
-        System.Console.WriteLine("*******************");
-        questions.Add(_question);
+
+        try
+        {
+            Question _question = new Question();
+            System.Console.WriteLine("*******************");
+            System.Console.Write("- Question "); _question.No = int.Parse(Console.ReadLine()); System.Console.WriteLine(": ");
+            System.Console.WriteLine("+ Title: "); _question.Title = Console.ReadLine();
+            System.Console.WriteLine("+ Answer Choice: "); _question.AnswerChoice = Console.ReadLine();
+            System.Console.WriteLine("*******************");
+            questions.Add(_question);
+        }
+        catch (Exception e)
+        {
+            System.Console.WriteLine(e.Message);
+        }
+
     }
 
     /* Delete question */
@@ -72,8 +89,15 @@ class Teacher : ExamQuestionCreatorDecorator
         {
             if (_number > 0 && questions[i].No == _number)
             {
-                System.Console.WriteLine("+ Title: "); questions[i].Title = Console.ReadLine();
-                System.Console.WriteLine("+ Answer Choice: "); questions[i].AnswerChoice = Console.ReadLine();
+                try
+                {
+                    System.Console.WriteLine("+ Title: "); questions[i].Title = Console.ReadLine();
+                    System.Console.WriteLine("+ Answer Choice: "); questions[i].AnswerChoice = Console.ReadLine();
+                }
+                catch (System.Exception e)
+                {
+                    System.Console.WriteLine(e.Message);
+                }
                 break;
             }
         }
@@ -118,51 +142,59 @@ class Teacher : ExamQuestionCreatorDecorator
         Console.Clear();
         do
         {
-            System.Console.WriteLine("\nTeacher's function: ");
-            System.Console.WriteLine("1. Add student \t 2. Show student list \t 3. Create question");
-            System.Console.WriteLine("4. Remove question \t 5. Update question \t 6. Show question list \t 7. Back");
-            System.Console.Write("Your select: "); int choice3 = int.Parse(Console.ReadLine());
-            if (choice3 == 1)
+            try
             {
-                addStudent();
+                System.Console.WriteLine("\nTeacher's function: ");
+                System.Console.WriteLine("1. Add student \t 2. Show student list \t 3. Create question");
+                System.Console.WriteLine("4. Remove question \t 5. Update question \t 6. Show question list \t 7. Back");
+                System.Console.Write("Your select: "); int choice3 = int.Parse(Console.ReadLine());
+                if (choice3 == 1)
+                {
+                    addStudent();
+                }
+                else if (choice3 == 2)
+                {
+                    showStudentList();
+                }
+                else if (choice3 == 3)
+                {
+                    createQuestion();
+                }
+                else if (choice3 == 4)
+                {
+                    System.Console.WriteLine("What question number do you want to delete?");
+                    System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                    removeQuestion(number);
+                }
+                else if (choice3 == 5)
+                {
+                    System.Console.WriteLine("What question number do you want to update?");
+                    System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
+                    updateQuestion(number);
+                }
+                else if (choice3 == 6)
+                {
+                    showQuestion();
+                }
+                else if (choice3 == 7)
+                {
+                    break;
+                }
+                else if (choice3 == 0)
+                {
+                    Environment.Exit(0);
+                }
+                else
+                {
+                    Console.Clear();
+                    System.Console.WriteLine("Invalid choice. Please enter again!");
+                }
             }
-            else if (choice3 == 2)
+            catch (System.Exception e)
             {
-                showStudentList();
+                System.Console.WriteLine(e.Message);
             }
-            else if (choice3 == 3)
-            {
-                createQuestion();
-            }
-            else if (choice3 == 4)
-            {
-                System.Console.WriteLine("What question number do you want to delete?");
-                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-                removeQuestion(number);
-            }
-            else if (choice3 == 5)
-            {
-                System.Console.WriteLine("What question number do you want to update?");
-                System.Console.Write("Your choice: "); int number = int.Parse(Console.ReadLine());
-                updateQuestion(number);
-            }
-            else if (choice3 == 6)
-            {
-                showQuestion();
-            }
-            else if (choice3 == 7)
-            {
-                break;
-            }
-            else if (choice3 == 0)
-            {
-                Environment.Exit(0);
-            }
-            else
-            {
-                Console.Clear();
-                System.Console.WriteLine("Invalid choice. Please enter again!");
-            }
+
         } while (true);
     }
 }
