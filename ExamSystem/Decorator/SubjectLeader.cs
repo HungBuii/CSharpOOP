@@ -110,6 +110,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
     public override void action()
     {
         creator.action();
+        Console.Clear();
         do
         {
             System.Console.WriteLine("\nSubject Leader's function: ");
@@ -152,6 +153,7 @@ class SubjectLeader : ExamQuestionCreatorDecorator
             }
             else
             {
+                Console.Clear();
                 System.Console.WriteLine("Invalid choice. Please enter again!");
             }
         } while (true);

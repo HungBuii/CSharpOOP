@@ -115,7 +115,7 @@ class Teacher : ExamQuestionCreatorDecorator
     public override void action()
     {
         creator.action();
-
+        Console.Clear();
         do
         {
             System.Console.WriteLine("\nTeacher's function: ");
@@ -160,6 +160,7 @@ class Teacher : ExamQuestionCreatorDecorator
             }
             else
             {
+                Console.Clear();
                 System.Console.WriteLine("Invalid choice. Please enter again!");
             }
         } while (true);

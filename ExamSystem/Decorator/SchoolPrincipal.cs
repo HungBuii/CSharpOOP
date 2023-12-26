@@ -47,6 +47,7 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
     public override void action()
     {
         creator.action();
+        Console.Clear();
         do
         {
             System.Console.WriteLine("\nSchool Principal's function: ");
@@ -66,6 +67,7 @@ class SchoolPrincipal : ExamQuestionCreatorDecorator
             }
             else
             {
+                Console.Clear();
                 System.Console.WriteLine("Invalid choice. Please enter again!");
             }
         } while (true);
